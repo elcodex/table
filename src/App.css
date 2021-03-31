@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+
+/*
+.table {
+    display: grid;
+    grid-template-columns: repeat(1fr, 3);
+    grid-auto-rows: max-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.table__header, .table__row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+[class$="__column"] {
+  flex: 1 1 33%;
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row__column {
+  text-align: left;
 }
+
+.table__header {
+  border-bottom: 1px solid #333333;
+}
+
+.table__row:nth-child(2n) {
+  background-color: #dddddd;
+}
+
+.table__row {
+  border-bottom: 1px dashed #333333;
+}
+
+*/
+/* navigationBar 
+.navigation__placeholder, navigation__input {
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  min-width: 50px;
+}
+
+.navigation__current {
+  font-weight: 700;
+}
+
+.navigation__current, .navigation__text, .navigation__number {
+  appearance: none;
+
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  min-width: 50px;
+  border: 1px solid black;
+}
+*/

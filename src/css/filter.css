@@ -1,0 +1,28 @@
+.table__filter {
+    max-width: 800px;
+    margin: auto;
+
+}
+
+.table__filter__input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid var(--filter-border-color);
+}
+
+.table__filter__input,
+.table__filter__input:focus {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.table__filter__input:focus {
+    border: 2px solid var(--filter-border-focus-color);
+}
+
+.table__filter__hint {
+    margin-top: 0.1rem;
+    font-size: 0.8rem;
+    color: var(--filter-hint-color);
+    text-align: right;
+}

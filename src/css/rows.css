@@ -1,0 +1,17 @@
+.table__rows {
+    margin: 1em 0;
+}
+
+.table__rows__row {
+    display: flex;
+    border-bottom: 1px dashed var(--row-border-color);
+}
+
+.table__row__column {
+    flex: 1 1 33%;
+    max-width: 33.333%;
+    
+    padding: 1rem;
+
+    word-break: break-all;
+}

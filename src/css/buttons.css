@@ -1,0 +1,36 @@
+.table__navigation__numberButton,
+.table__navigation__direction,
+.table__navigation__pageInput__button {
+    padding: 0.2rem 0.7rem;
+    margin: 0 0.5rem;
+    color: var(--navigation-color);
+}
+
+.table__header__columnButton,
+.table__navigation__numberButton,
+.table__navigation__direction,
+.table__navigation__pageInput__button {
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background-color: inherit;
+
+    cursor: pointer;
+}
+
+.table__header__columnButton:hover,
+.table__navigation__numberButton:hover,
+.table__navigation__direction:hover,
+.table__navigation__pageInput__button:hover {
+    background-color: var(--button-hover-background-color);
+    color: var(--button-hover-color);
+}
+
+.table__navigation__numberButton:disabled,
+.table__navigation__direction:disabled,
+.table__navigation__numberButton:disabled:hover,
+.table__navigation__direction:disabled:hover {
+    color: var(--color);
+    background-color: var(--background-color);
+    cursor: default;
+}

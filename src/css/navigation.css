@@ -1,0 +1,21 @@
+.table__navigation {
+    text-align: center;
+}
+
+.table__navigation__direction:first-child {
+    float: left;
+}
+
+.table__navigation__direction:last-child {
+    float: right;
+}
+
+.table__navigation__numberButton_current {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .table__navigation__direction {
+        display: none;
+    }
+}

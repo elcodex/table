@@ -1,0 +1,22 @@
+.table__header {
+    display: flex;
+    border-bottom: 2px solid var(--header-border-color);
+
+    font-weight: 700;
+}
+
+.table__header__columnButton {
+    flex: 1 1 33%;
+    padding: 1rem;
+}
+
+.table__header__columnButton .tableSortMarker {
+    margin-left: 1rem;
+    fill: var(--color);
+    stroke: var(--color); 
+}
+
+.table__header__columnButton:hover .tableSortMarker {
+    fill: var(--button-hover-color);
+    stroke: var(--button-hover-color); 
+}
