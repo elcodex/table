@@ -6,6 +6,7 @@ import NavigationBar from "../NavigationBar/NavigationBar";
 import usePage from "../../hooks/usePage";
 import TableHeader from "../TableHeader/TableHeader";
 import DisplayedText from "../DisplayedText/DisplayedText";
+import { TableRow } from '../../types/RecordType';
 
 interface TableProps {
     data: TableRow[];
@@ -18,10 +19,6 @@ interface TableProps {
     textForDataLength?: string; // ${text} ${length}
     textForFromToDataRows?: string; // ${text} ${from} - ${to}
     textForPageNumber?: string; // ${text} ${pageNumber}
-}
-
-interface TableRow {
-    [name: string]: string | number
 }
 
 export default function Table({
