@@ -23,7 +23,7 @@ export default function NavigationInput({ pageEnter, pagesRange, className }: In
         setValue(event.currentTarget.value);
     }
 
-    function handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+    function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === "Enter") {
             event.preventDefault();
 
@@ -46,9 +46,10 @@ export default function NavigationInput({ pageEnter, pagesRange, className }: In
                 <input className={inputClassName} autoFocus={true} size={5}
                     type="text" 
                     onChange={handleChange}
-                    onKeyPress={handleKeyPress}
+                    onKeyDown={handleKeyDown}
                     onBlur={handleBlur}
                     value={value}
+                    data-testid={"pageInput"}
                 /> :
                 <button className={buttonClassName} onClick={handleClick} title="enter page number">
                     ...

@@ -20,7 +20,7 @@ export default function FilterTextInput({ text, setFilter, classPrefix }: InputP
         setInputValue(event.currentTarget.value)
     }
 
-    function handleInputKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+    function handleInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === "Enter") {
             event.preventDefault();
             setFilter(inputValue);
@@ -39,7 +39,7 @@ export default function FilterTextInput({ text, setFilter, classPrefix }: InputP
                 id={inputId}
                 value={inputValue}
                 onChange={handleInputChange}
-                onKeyPress={handleInputKeyPress}
+                onKeyDown={handleInputKeyDown}
             />
             <p className={hintClassName}>Hint: text to find; fieldName:text to find;</p>
         </div>
