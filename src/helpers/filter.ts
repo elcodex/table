@@ -31,7 +31,7 @@ export function filterData(data: TableRow[], filters:string[][]) {
                     filter[1]
                         .split(/[ \t]+/)
                         .every(word => 
-                            row[filter[0]] && row[filter[0]].toString().includes(word)
+                            row[filter[0]] && row[filter[0]].toString().toLowerCase().includes(word)
                         )
                 )
             } else if (filter.length === 1) {
@@ -41,7 +41,7 @@ export function filterData(data: TableRow[], filters:string[][]) {
                     return filter[0]
                         .split(/[ \t]+/)
                         .every(word =>
-                            values.some(value => value.toString().includes(word))
+                            values.some(value => value.toString().toLowerCase().includes(word))
                         );
                 })
             }
