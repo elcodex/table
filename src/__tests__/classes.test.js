@@ -4,7 +4,6 @@ import TableHeader from "../components/TableHeader/TableHeader";
 import TableRows from "../components/TableRows/TableRows";
 import NavigationBar from "../components/NavigationBar/NavigationBar";
 import FilterTextInput from "../components/FilterTextInput/FilterTextInput";
-import DisplayedText from "../components/DisplayedText/DisplayedText";
 
 afterEach(cleanup);
 
