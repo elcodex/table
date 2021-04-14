@@ -15,9 +15,11 @@ export default function TableRows({ pageData, fieldsNames, classPrefix }: TableP
     return (
         <div className={rowsClassName}>
             {pageData.map((data, i) =>
-                <div className={rowClassName} key={i}>
+                <div className={rowClassName} key={`row-${i}`}>
                     {fieldsNames.map((name, j) =>
-                        <div className={columnClassName} key={j}>
+                        <div 
+                            className={`${columnClassName} ${typeof data[name] === 'string' ? `${columnClassName}_string` : `${columnClassName}_number`}`}
+                            key={`column-${j}`}>
                             {data[name]?.toString()}
                         </div>
                     )}
