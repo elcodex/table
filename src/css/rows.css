@@ -13,5 +13,9 @@
     
     padding: 1rem;
 
-    word-break: break-all;
+    word-break: break-word;
+}
+
+.table__row__column_number {
+    text-align: center;
 }
