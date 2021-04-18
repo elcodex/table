@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+# Компонент Table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[demo](https://elcodex.github.io/table/build/index.html)
 
-## Available Scripts
+`#React` `#hooks` `#TypeScript` `#react-testing-library` `#Jest` `#css` `#html`
 
-In the project directory, you can run:
+В приложении реализованы возможности:
+- навигация по страницам,
+- сортировка по колонками (одно нажатие - сортировка по возрастанию, второе - по убыванию),
+- поиск (фильтрация) по строке (формат поиска: `строка` или `поле:строка;...`).
 
-### `npm start`
+В компонент `Table` передаются параметры необходимые для работы таблицы. В компонентах таблицы прописаны классы для стилизации таблицы пользователем. Параметры и классы описаны ниже.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+В компоненте `App` создана таблица, в папке `css` прописаны стили для элементов таблицы.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Логика навигации по страницам
+- На панели навигации всегда отображаются кнопки `Previous`, `Next`, первая страница, последняя страница, текущая страница.
+- Рядом с текущей страницей с обеих сторон отображаются номера двух соседних страниц.
+- Вместо пропущенных страниц отображается `...`. При нажатии на эту кнопку появляется поле ввода номера страницы.
+- Если между первой страницей и отображаемыми номерами страниц ровно одна страница, то эта страница отображается номером, а не многоточием. Аналогичное поведение с предпоследней страницей. 
 
-### `npm test`
+## Параметры компонента
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `data: TableRow[]; interface TableRow { [name: string]: string | number}`
+Данные таблицы.
 
-### `npm run build`
+- `fieldsNames: string[]`
+Названия колонок таблицы.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `maxPageRows?: number`
+Количество строк на одной странице, опциональный параметр, значение по умолчанию `50`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `className?: string`
+Класс для таблицы и префикс ко всем классам внутри таблицы, опциональный параметр, значение по умолчанию `table`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `textForFilterLabel?: string`
+Текст для лейбла фильтра. Если параметр не задан, поле фильтрации не отображается. 
 
-### `npm run eject`
+- `textForDataLength?: string`
+Текст для отображения текущего количества записей в таблице с учётом фильтрации. Если параметр не задан, строка не отображается. Формат отображаемой строки: `${textForDataLength} ${dataLength}`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `textForFromToDataRows?: string`
+Текст для отображения текущего диапазона номеров строк. Если параметр не задан, строка не отображается. 
+Формат отображаемой строки: `${textForFromToDataRows} (${fromRowNumber} - ${toRowNumber})`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `textForPageNumber?: string`
+Текст для отображения номера текущей страницы. Если параметр не задан, строка не отображается. 
+Формат отображаемой строки: `${textForPageNumber} ${pageNumber}`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Классы для стилизации таблицы
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+компонент Table
+- `className || table`
+заданный класс является префиксом к остальным классам таблицы
 
-## Learn More
+компонент Header
+- ${className}__header
+- ${className}__header__columnButton
+- tableSortMarker
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+компонент Rows
+- ${className}__rows
+- ${className}__rows__row
+- ${className}__row__column
+- ${className}__row__column_string
+- ${className}__row__column_number
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+компонент NavigationBar
+- ${className}__navigation
+- ${className}__navigation__direction
+- ${className}__navigation__numberButton
+- ${className}__navigation__numberButton_current
+- ${className}__navigation__pageInput__input
+- ${className}__navigation__pageInput__button
+
+компонент Filter
+- ${className}__filter
+- ${className}__filter__input
+- ${className}__filter__label
+- ${className}__filter__hint
+
+компонент Text
+- ${className}__lengthText
+- ${className}__rangeText
+- ${className}__pageNumberText
