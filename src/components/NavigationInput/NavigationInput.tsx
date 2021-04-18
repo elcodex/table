@@ -58,7 +58,7 @@ export default function NavigationInput({ pageEnter, pagesRange, className }: In
                     ...
                 </button>
             }
-            <a ref={linkRef} href="#go-here" style={{display: "none"}}>link</a>
+            <a ref={linkRef} href="#table-nav" style={{display: "none"}}>link</a>
         </>
     )
 }
