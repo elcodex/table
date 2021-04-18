@@ -41,7 +41,7 @@ export default function FilterTextInput({ text, setFilter, classPrefix }: InputP
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
             />
-            <p className={hintClassName}>Hint: text to find; fieldName:text to find;</p>
+            <p className={hintClassName}>Try "text" or "field1:text; field2:text" to find</p>
         </div>
     )
 }
