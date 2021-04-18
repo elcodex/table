@@ -37,15 +37,17 @@ describe('components classes', () => {
     test('Rows', async () => {
         await act(async () => {
             render(<TableRows
-                fieldsNames={['name']}
-                pageData={[{name: 'Common name'}]}
+                fieldsNames={['column_string', 'column_number']}
+                pageData={[{column_string: 'Common name', column_number: 32 }]}
                 classPrefix={'testTable'}
             />);
         });
 
         expect(document.getElementsByClassName('testTable__rows')).toHaveLength(1);
         expect(document.getElementsByClassName('testTable__rows__row')).toHaveLength(1);
-        expect(document.getElementsByClassName('testTable__row__column')).toHaveLength(1);
+        expect(document.getElementsByClassName('testTable__row__column')).toHaveLength(2);
+        expect(document.getElementsByClassName('testTable__row__column_number')).toHaveLength(1);
+        expect(document.getElementsByClassName('testTable__row__column_string')).toHaveLength(1);
     });
 
     test('NavigationBar', async () => {

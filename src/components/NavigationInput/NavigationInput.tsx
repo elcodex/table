@@ -1,4 +1,4 @@
-import { FormEvent, KeyboardEvent, MouseEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, MouseEvent, useRef, useState } from "react";
 
 interface InputProps {
     pageEnter: (page: number) => void;
@@ -7,7 +7,7 @@ interface InputProps {
 }
 
 export default function NavigationInput({ pageEnter, pagesRange, className }: InputProps) {
-
+    const linkRef = useRef<HTMLAnchorElement>(null);
     const [isEditable, setIsEditable] = useState(false);
     const [value, setValue] = useState(""); 
 
@@ -33,6 +33,9 @@ export default function NavigationInput({ pageEnter, pagesRange, className }: In
                 setIsEditable(false);
                 setValue("");
             }
+            if (linkRef.current) {
+                (linkRef.current as HTMLAnchorElement)?.click();
+            }
         }
     }
 
@@ -55,6 +58,7 @@ export default function NavigationInput({ pageEnter, pagesRange, className }: In
                     ...
                 </button>
             }
+            <a ref={linkRef} href="#go-here" style={{display: "none"}}>link</a>
         </>
     )
 }

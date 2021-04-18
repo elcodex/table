@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useRef } from 'react';
 import NavigationButton from "../NavigationButton/NavigationButton";
 import NavigationInput from '../NavigationInput/NavigationInput';
 
@@ -10,6 +10,7 @@ interface barProps {
 }
 
 export default function NavigationBar({ lastPage, currentPage, setPage, classPrefix }: barProps) {
+    const linkRef = useRef<HTMLAnchorElement>(null);
 
     const fromPage = Math.max(currentPage - 2, 1);
     const toPage = Math.min(currentPage + 2, lastPage);
@@ -21,8 +22,11 @@ export default function NavigationBar({ lastPage, currentPage, setPage, classPre
 
     function handleClick(event: MouseEvent<HTMLDivElement>) {
         if ((event.target as HTMLElement)?.tagName === "BUTTON") {
+            if (linkRef.current) {
+                (linkRef.current as HTMLAnchorElement)?.click();
+            }
             const page = Number((event.target as HTMLButtonElement).dataset.number);
-            setPage(page); 
+            setPage(page);
         }
     }
 
@@ -112,24 +116,27 @@ export default function NavigationBar({ lastPage, currentPage, setPage, classPre
     }
     
     return (
-        <div className={navigationClassName} onClick={handleClick}>
-            <NavigationButton 
-                text="Previous"
-                dataNumber={currentPage - 1}
-                disabled={currentPage === 1}
-                className={navigationDirectionClassName}
-            />
+        <>
+            <a ref={linkRef} href="#go-here" style={{display: "none"}}>link</a>
+            <div className={navigationClassName} onClick={handleClick} id="go-here">
+                <NavigationButton 
+                    text="Previous"
+                    dataNumber={currentPage - 1}
+                    disabled={currentPage === 1}
+                    className={navigationDirectionClassName}
+                />
 
-            {firstBlock()}
-            {numberedBlock()}
-            {lastBlock()}
+                {firstBlock()}
+                {numberedBlock()}
+                {lastBlock()}
 
-            <NavigationButton
-                text="Next"
-                dataNumber={currentPage + 1}
-                disabled={currentPage === lastPage}
-                className={navigationDirectionClassName}
-            />
-        </div>
+                <NavigationButton
+                    text="Next"
+                    dataNumber={currentPage + 1}
+                    disabled={currentPage === lastPage}
+                    className={navigationDirectionClassName}
+                />
+            </div>
+        </>
     );
 }
