@@ -40,9 +40,7 @@ function App() {
                 fieldsNames={fieldsNames}
                 maxPageRows={50}
 
-                textForDataLength="Records:"
-                textForFromToDataRows="Rows:"
-                textForPageNumber="Page:"
+                textForDataLength="Records found:"
                 textForFilterLabel="Filter:"
             />
         </div>
