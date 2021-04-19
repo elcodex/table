@@ -17,7 +17,8 @@ export default function FilterTextInput({ text, setFilter, classPrefix }: InputP
     const hintClassName = `${classPrefix}__filter__hint`;
 
     function handleInputChange(event: FormEvent<HTMLInputElement>) {
-        setInputValue(event.currentTarget.value)
+        setInputValue(event.currentTarget.value);
+        setFilter(event.currentTarget.value);
     }
 
     function handleInputKeyDown(event: KeyboardEvent<HTMLInputElement>) {
